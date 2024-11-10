@@ -26,7 +26,6 @@ require([
         })
     });
 
-
     const camerasLayer = new FeatureLayer({
         url: camerasLayerUrl,
         outFields: ["county", "location", "url"],
@@ -69,7 +68,6 @@ require([
     map.add(countiesLayer);
 
     const cameraCounts = {};
-
 
     function updateCameraCounts() {
         const url = `https://services.arcgis.com/P3ePLMYs2RVChkJx/ArcGIS/rest/services/Traffic_Cameras/FeatureServer/0/query?where=1=1&outFields=county&outStatistics=[{"statisticType":"count","onStatisticField":"county","outStatisticFieldName":"camera_count"}]&groupByFieldsForStatistics=county&f=json`;
@@ -172,45 +170,16 @@ require([
         };
     }
 
-
     const legend = new Legend({
         view: view,
         layerInfos: [{ layer: countiesLayer, title: "Contagem de Câmeras por Condado" }]
     });
     view.ui.add(legend, "bottom-right");
 
-
-    function loadCameraOptions() {
-        camerasLayer.queryFeatures({
-            where: "1=1",
-            outFields: ["location", "url"],
-            returnGeometry: true
-        }).then(result => {
-            const cameraSelect = document.getElementById("cameraSelect");
-            result.features.forEach(feature => {
-                const option = document.createElement("option");
-                option.value = JSON.stringify(feature.geometry);
-                option.textContent = feature.attributes.location;
-                cameraSelect.appendChild(option);
-            });
-
-            cameraSelect.addEventListener("change", function () {
-                const selectedGeometry = this.value ? JSON.parse(this.value) : null;
-                if (selectedGeometry) {
-                    view.goTo(selectedGeometry).then(() => {
-                        view.popup.open({
-                            title: "📍 Câmera de Tráfego",
-                            location: selectedGeometry
-                        });
-                    });
-                }
-            });
-        }).catch(error => console.error("Erro ao carregar opções de câmeras:", error));
-    }
     document.getElementById("styleSwitch").addEventListener("click", () => {
-
         map.basemap = map.basemap.id === "gray-vector" ? "streets" : "gray-vector";
     });
+
     countiesLayer.when(updateCameraCounts);
     loadCameraOptions();
 });
