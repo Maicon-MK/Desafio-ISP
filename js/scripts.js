@@ -70,7 +70,7 @@ require([
 
     const cameraCounts = {};
 
-    
+
     function updateCameraCounts() {
         const url = `https://services.arcgis.com/P3ePLMYs2RVChkJx/ArcGIS/rest/services/Traffic_Cameras/FeatureServer/0/query?where=1=1&outFields=county&outStatistics=[{"statisticType":"count","onStatisticField":"county","outStatisticFieldName":"camera_count"}]&groupByFieldsForStatistics=county&f=json`;
 
@@ -179,7 +179,7 @@ require([
     });
     view.ui.add(legend, "bottom-right");
 
-    
+
     function loadCameraOptions() {
         camerasLayer.queryFeatures({
             where: "1=1",
@@ -208,7 +208,7 @@ require([
         }).catch(error => console.error("Erro ao carregar opções de câmeras:", error));
     }
     document.getElementById("styleSwitch").addEventListener("click", () => {
-       
+
         map.basemap = map.basemap.id === "gray-vector" ? "streets" : "gray-vector";
     });
     countiesLayer.when(updateCameraCounts);

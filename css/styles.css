@@ -10,7 +10,6 @@ html {
     background-color: #f4f4f9;
     color: #2c3e50;
 }
-
 header {
     display: flex;
     align-items: center;
@@ -21,7 +20,6 @@ header {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     height: 5rem;
 }
-
 #logo {
     height: 40px;
     margin-right: 15px;
@@ -30,7 +28,7 @@ header {
 #controls {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 16px;
 }
 
 h2.esri-widget__heading {
