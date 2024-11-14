@@ -48,8 +48,9 @@ No topo do mapa, há um **seletor de câmeras** que permite escolher uma localiz
 
 ## Projeto Completo
 
-![Exemplo Completo do Mapa](img/logo.png)
-![Exemplo Completo do Mapa](img/MapadeCmerasporCondadoGif.gif)
+![Exemplo Completo do Mapa ](img/logo.png)
+<img src="img/MapadeCmerasporCondadoGif.gif" width="1000">
+ ## Mapa de Câmeras de Tráfego por Condado [Video](https://www.youtube.com/watch?v=FTFPAFBkrAg)
 ![Exemplo Completo do Mapa](img/mapa%201.jpeg)
 ![Exemplo Completo do Mapa](img/Pop%20up%20com%20as%20informaçoes%20%20condado.jpeg)
 ![Exemplo Completo do Mapa](img/Pop%20up%20com%20legenda.jpeg)
